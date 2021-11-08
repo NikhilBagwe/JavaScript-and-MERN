@@ -1,0 +1,135 @@
+-- History of JS:
+
+* In 1995, Netscape navigator felt the need of having a programming language that can add interactivity to web pages.
+* So Brendon Eicah created JS within 10 days and named it 'Mocha', than later changed it to 'LiveScript'. But still the language was not getting much attention. So they again changed the name to 'JavaScript' since 'Java' was a popular language at that time.
+* Seeing the rise in popularity of Netscape navigator, Internet Explorer of Microsoft decided to copy some features of JS and created its own language 'JScript'.
+* In 1996 we had,
+    - JavaScript, by Netscape navigator
+    - JScript, by Internet Explorer
+* This created a huge problem for developers as they needed to code 1 website in two different languages so they can run on different browsers.
+* ECMA is an international organization that standardizes technology like how it should work, behave,etc.
+* So ECMA came to the rescue, and said that they will decide how JS will work inside browser, what rules it will follow, etc. and created a standard version of JS.
+* ES1 was launced in 1997 followed by various version releases, and ES5(2009) became more popular as it came with lot of new features thus JS started gaining a lot of popularity.
+
+=> ECMAScript is a standard for Scripting languages and JavaScript is the most popular implementation of the ECMAScript.
+
+* ES6 version(also called as "Modern JS") was launched in 2015 with the biggest update ever in history of JS . Later on the name was changed to ES2015 as the members of "tc39" (Technical community) decided to launch new versions every year and thus to create less confusion between developers.
+
+=> JavaScript is BACKWARD compatible.
+   eg. a feature which was present in 20 year old version of JS will still work in today's browser.
+
+=> JavaScript is NOT FORWARD compatible.
+   eg. If a person is using 15 year old browser and trying to run JS code written using the latest version, the code won't run.
+- For this reason we have tools like "BABEL" which transplie the code written using ES6 to the version supported by the old browser i.e ES5.
+
+
+== Let keyword =======================================================
+
+* Added in ES2015
+
+* We cannot declare a new variable using the same name with 'let'. It will give error unlike 'var'.
+
+eg: let firstName = "nik";
+    let firstName = "om";  // ERROR
+
+    let firstName = "nik";
+    firstName = "om";     // VALID
+
+
+== Datatypes ======================================================================
+
+==> Primitive: -----------------------------------
+
+1. Number
+2. Boolean
+
+3. BigInt - BigInt is a built-in object in JavaScript that provides a way to represent whole numbers larger than 253-1.
+
+4. String - STRINGS ARE IMMUTABLE IN JS
+
+5. Undefined - When you just declare a variable without assigning any value to it, it's type becomes undefined.
+eg: let firstName;
+-> We can't do the same with 'const' as it will give an error. We have to always assign something to const while declaring it.
+
+6. Null - means nothing.
+-> On doing 'console.log(typeof null)' it will give o/p as 'object' instead of giving 'null'. It is a bug/error in JS which is not fixed yet as if they fix this bug, the code written using this buggy version of JS will break.
+
+7. Symbol
+
+==> Reference type -------------------------
+
+1. Arrays - ordered collection of elements
+- Arrays are MUTABLE i.e the changes that you make using push(), pop(), shift(), unshift() methods will directly change the original array
+
+- push(), pop() methods are faster as compared to shift(), unshift() methods as they just insert/delete element present in the end of array unlike shift, unshift have to first move all the elements in the memory and then insert/delete elements.
+
+- You can store mixed datatypes into a single array. 
+  eg: [1, 2.3, "string", 4, null]
+
+- Clone/Copy array:
+  let array1 = ["item1", "item2"]; // 2 separate arrays - array1 and array2
+//let array2 = ["item1", "item2"];
+//let array2 = array1.slice(0).concat(["item3", "item4"]); // Concat and Slice method
+//let array2 = [].concat(array1,["item3", "item4"]); // Concat method
+//new way 
+//spread operator-----------
+let oneMoreArray = ["item3", "item4"]
+let array2 = [...array1, ...oneMoreArray];
+
+- For of loop -> In this loop, you get direct access to the value at certain index in array
+  eg : for(let fruit of fruits){}
+
+- For in loop -> In this loop, you get index position in the array
+  eg : for(let index in fruits){}
+
+2. Objects -> used to store real world data. 
+   eg: const person={name:"nik", age:22}
+- stores data in key-value pair
+- don't have index.
+- use '.' operator to access data/properties of object. eg: person.name] or use brackets[], eg: console.log(person["person hobbies"])
+- use brackets to access properties that have space in between them. eg: "person hobbies" 
+
+
+
+==> Primitive vs Reference types :
+
+1. Primitives are stored into stack memory.
+   eg: If you store 2 different variables num1=4 and num2=num1, separate memory space will be allocated for both and since num2=num1, thus num2=4. It dosen't matter whether you change num1 later, it won't affect the value stored in num2, it will remain 4 until its changed.
+
+2. The value assigned to Reference type variables is stored into HEAP memory and a pointer pointing to that location is stored in STACK. 
+   eg: Suppose you store an array
+let array1 = ["item1", "item2"]; // The array will be stored in HEAP and pointer pointing to that array is stored in STACK
+let array2 = array1; // Copies the pointer from array1 into array2 in STACK memory
+array1.push("item3");
+console.log("after pushing element to array 1");
+console.log("array1", array1);
+console.log("array2", array2);
+- Thus if you make change in array1, the changes will be reflected in array2 also since they are pointing to the same memory location.
+
+-> TRICK to change number to string:
+
+   Add a empty string to the variable
+   eg:  let age = 22;   // Number
+	age = age + ""; // String 
+
+-> TRICK to change string to number:
+
+   Add a plus sign infront of string
+   eg:  let age = +"34";   // Number
+
+
+=== TRUTHY AND FALSY ===================================================================================
+
+-> Truthy values - all values except falsy values are truthy values.
+
+-> Falsy values
+
+- false
+- null
+- undefined
+- ""
+- 0
+
+
+
+
