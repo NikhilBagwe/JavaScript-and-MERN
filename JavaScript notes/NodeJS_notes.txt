@@ -1,0 +1,62 @@
+Front end -> Client side
+Backend -> Server side
+
+- When we enter a URL in browser, a request is send to the server. Then the server will do some processing and send back a response in form of HTML, CSS & JS files
+  which can be viewed on the client side.
+
+== JAVASCRIPT ENGINE: -------------------------------------------------------------------------------------------------------
+
+- it converts JS code to machine code.
+- SPIDERMONKEY was the very first JS engine made by NetScape.
+- Nowadays V8 engine has become famous as it directly converts JS code to machine code faster and is used by chrome and edge browsers
+
+= NodeJS:
+
+- Nodejs is a JS runtime environment which uses V8 JS engine, where you can run JS code outside the browser on a physical machine
+- Simply nodejs is a javascript that executes on the server/backend.
+- we cannot use "Local storage" and Document object in nodejs.
+- single thread handles multiple requests, unlike apache server
+- Nodejs has modules which are small encapsulated units of programs which can be reused and shared. They can be easily maintained and debugged.
+It also has inbuilt modules which can be accessed using'require'.
+
+--> Working of Nodejs: -------------------------------------------------------------------------------------------------------
+
+- Web Server :
+* A web server consists of a client which can be a web browser or mobile phone and a server.
+* Web browser expects HTML,CSS files as a response to a request made to the server and mobile app expects only data as the layout is already present in the mobile.
+  eg. Live cricket score mobile app only expects live data from server as layout of app is already present in phone
+* It takes some time for a server to respond back to the client.
+* Here concept of Threading is used i.e. 1 thread is assigned to 1 client, but in case of multiple clients it will become a problem if there is only 1 thread as the rest 
+  clients have to wait until the thread is free. 
+
+- Node js is single threaded and it uses the concept of non-blocking I/O and Async to tackle the problem of multiple requests.
+
+- Non- blocking i/o means that nodejs will not block itself/wait for 1 request. The Thread assigns its job to a worker(provided by "libUV", which has access to the system's
+  kernel which has multiple threads which are used as workers providing non-blocking I/O functionality), thus the thread remains free for next client.
+
+-But what when one of the request is completed by the worker ??
+> Here comes the concept of Asynchronous callback function. It executes the remaining statements 
+
+-> THINGS WE CAN DO USING Nodejs:
+
+1. IMPORT : import data from another file using the keyword "require" and assign it to some variable. Export an file using "module.exports"
+
+2. MODULE WRAPPER FUNCTION
+
+3. HTTP : to create servers
+
+-> PATH MODULE:
+
+== EXPRESS JS: ==========================================================----------------------------------------------------------------------------------------------
+
+- We have frameworks such as React,angular,etc. for the frontend in JS , likewise we needed some framework for the backend also.
+- so expressjs was made as a framework for building web applications
+
+STATIC MIDDLEWARE:
+
+1. Create a folder to store your static files.
+2. In the links, always mention the whole file names. eg: about.html
+
+What if our website has lots of pages ?
+we cannot create each page indiviually by using 'get' function.
+-> Express Router is used to solve this problem
