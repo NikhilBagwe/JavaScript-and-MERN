@@ -1,6 +1,6 @@
 ## IMP - Refer previous '07' article
 - We want JS to first look whether the given key is present inside the obj2, if not than it will check for the key inside obj1 and return it.
-- This can be acheived bu using 'Object.create()' which adds the mentioned object as reference to '__proto__' of current object which is being created.
+- This can be acheived bu using 'Object.create()' which adds the mentioned object as reference to __proto__ or [[Prototype]] of current object which is being created.
 - This creates a proto chain.
 - eg: const obj2 = Object.create(obj1) // obj1 is added into proto of obj2
 - When JS dosen't find something it looks into the object's proto for it
