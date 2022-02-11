@@ -1,5 +1,8 @@
-- In JS, we can treat a function as a function as well as object
+## Prototype
+- In JS, we can treat a function as a function as well as object.
 - When we create a function, it gives us a 'prototype' object where we can store properties(key-value pairs) related to that function if needed.
+- It is like a free space which is provided to a function.
+- Only functions provide 'prototype'.
 
 ```javascript
 function hello(){
