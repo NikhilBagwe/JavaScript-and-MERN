@@ -22,7 +22,7 @@
 
 # IMP - Why compiling/parsing is done first?
 1. For early error checking
-2. To determine appropriate scoping of variables
+2. To determine appropriate scoping of variables - Global scope, function scope
 
 ### Note : Originally, JS is a syynchronous programming language i.e until 1 line is completely executed, execution of 2nd line won't start. Thus, JS is also single-threaded i.e thread will execute 1 line and then start executing 2nd line. Browser provides JS with asynchronous feature.
 
