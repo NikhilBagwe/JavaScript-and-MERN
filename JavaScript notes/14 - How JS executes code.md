@@ -8,7 +8,7 @@
 
 + Then code is executed - JS code can only be executed inside 'Execution Context'
   * Code Execution phase steps : This happens before 1st line of code is executed
-  1. Global Execution context is created. 
+  1. Global Execution context is created and it is added into a stack. 
 
 # How Global Execution context is created?
 
