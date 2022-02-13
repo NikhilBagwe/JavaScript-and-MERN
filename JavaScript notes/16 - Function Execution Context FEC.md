@@ -49,11 +49,11 @@ console.log(personName) // 5th
       - eg: firstName : 'nikhil
           lastName : 'bagwe'
     - Now in Code execution phase  FEC:
-      - The arguments obj is printed.
-      - 'myVar' value is set to 'var inside func'
-      - myVar is printed
-      - 'fullname' is set to 'Nikhil bagwe'
-      - 'fullname' is returned to personName and now personName is set to 'nikhil bagwe'.
+      - 1st line ->The arguments obj is printed.
+      - 2nd line ->'myVar' value is set to 'var inside func'
+      - 3rd line ->myVar is printed
+      - 4th line ->'fullname' is set to 'Nikhil bagwe'
+      - 5th line ->'fullname' is returned to personName and now personName is set to 'nikhil bagwe'.
       - FEC is finished executing and popped from call stack
 
 ```javascript
