@@ -6,7 +6,7 @@
   2. Parsing - Creates AST(Abstract Syntax Trees)
   3. Code generation - With help of ASTs code is generated which can be executed
 
-+ Then code is executed - JS code can only be executed inside 'Execution Context'
++ Then code is executed - In order to execute JS code, JS creates 'Execution Context'
   * Code Execution phase steps : This happens before 1st line of code is executed
   1. Global Execution context is created and it is added into a stack. 
 
@@ -15,14 +15,14 @@
 1. There are 2 phases :
   * Creation phase
   * Code execution phase
-2. All the variables are created and put into 'Creation' phase(Global memory) and set to 'undefined'
+2. All the variables are created and put into Global memory in 'Creation' phase and set to 'undefined' before the code is executed. This is called hoisting.
 3. 'this' is set to 'window' obj which is provided by browser in case the pgm is run on browser.
-4. Then we enter into 'Code execution phase' where we start executing code from 1st line and output its result into console accordingly.
+4. Then we enter into 'Code execution phase' where we start executing code from 1st line and output its result into console accordingly i.e line-by-line code is executed.
 5. As per our example when JS executes 3rd line, it will print 'undefined' in the console as firstname is set to undefined in creation phase.
 
 # IMP - Why compiling/parsing is done first?
 1. For early error checking
-2. To determine appropriate scoping of variables - Global scope, function scope
+2. To determine appropriate scoping of variables - Global scope, function scope. Here JS has a knowlegde of how many variables, functions are present in code even before they are created in GEC.
 
 ### Note : Originally, JS is a syynchronous programming language i.e until 1 line is completely executed, execution of 2nd line won't start. Thus, JS is also single-threaded i.e thread will execute 1 line and then start executing 2nd line. Browser provides JS with asynchronous feature.
 
