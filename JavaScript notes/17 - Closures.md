@@ -40,3 +40,58 @@ console.log(ans) // 3rd line
 
 ans() // 4th line
 ```
+
+## Closure Example 2 :
+
+- ### Based on the power passed into 'myFunction' square,cube,etc. of the given number will be calculated.
+
+```javascript
+function myFunction(power) {
+  return function (number) {
+    return number ** power
+  }
+}
+
+// ---------------------- OR --------------------------- Concise code using arrow function --------------
+
+const myFunction = (power) => (number) => number ** power
+
+const square = myFunction(2)
+const ans = square(3)
+
+console.log(ans)
+
+```
+
+# Practical use of Closures :
+
+### Use Closure to Design a function that will return a function that can be called only once after being stored in a variable and when we try calling it again it will throw some error message.
+
+- In below code, function 'func' returns not only an anonymous function but also 'num' from local memory of 'func's FEC using Closure.
+- So we take advantage of this and change 'num's value while executing it so that only once 'Hello you called me' will be printed and rest of the times 'ERROR : Already called once!!' is printed.
+
+```javascript
+function func() {
+  let num = 1
+  return function () {
+    if (num == 1) {
+      console.log('Hello you called me')
+      num = 0
+    } else console.log('ERROR : Already called once!!')
+  }
+}
+
+// An anonymous function is stored in 'ans' with num = 1
+const ans = func()
+// Prints 'Hello you called me' and sets 'num' to 0
+ans()
+// Only error message will be printed here after on calling 'ans()'
+ans()
+ans()
+
+// We can again store the anonymous function in new variable and will behave same as above.
+const ans1 = func()
+ans1()
+ans1()
+
+```
