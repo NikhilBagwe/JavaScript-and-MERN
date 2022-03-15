@@ -38,3 +38,26 @@ function clickMe() {
 
 btn.addEventListener('click', clickMe)
 ```
+
+- The 'this' keyword will be set to the HTML element itself, when calling a normal function inside addEventListener.
+
+```javascript
+const btn = document.querySelector('.btn-headline')
+
+btn.addEventListener('click', function () {
+  console.log(this)
+  console.log('you clicked me!!')
+})
+```
+- In case of arrow function, 'this' will be set to window object.
+
+```javascript
+const btn = document.querySelector('.btn-headline')
+
+btn.addEventListener('click', () => {
+  console.log(this)
+  console.log('you clicked me!!')
+})
+```
+
+
