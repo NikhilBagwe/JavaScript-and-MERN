@@ -23,7 +23,7 @@
 
 ## DOM tree of above code :
 
-![DOM Tree](C:\Users\Nikhil\Downloads\js_snip.jpg "DOM Tree")
+![DOM Tree](js_snip.JPG "DOM Tree")
 
 ## Gets root node of DOM tree :
 
