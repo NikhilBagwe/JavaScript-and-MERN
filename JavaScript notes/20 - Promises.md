@@ -55,3 +55,59 @@ myPromise
   })
 
 ```
+
+# Function returning a promise :
+
+```js
+function myPromise() {
+  const bucket = ['vegetables', 'fruits', 'rice', 'salt', 'chips']
+
+  return new Promise((resolve, reject) => {
+    if (
+      bucket.includes('vegetables') &&
+      bucket.includes('salt') &&
+      bucket.includes('rice')
+    ) {
+      resolve({ value: 'Fried Rice' })
+    } else {
+      reject("Couldn't do it ")
+    }
+  })
+}
+
+myPromise()
+  .then((myFriedRice) => {
+    console.log('lets eat ', myFriedRice)
+  })
+  .catch((error) => {
+    console.log(error)
+  })
+
+```
+
+# Promise and Settimeout :
+
+- You want to resolve / reject promise after 2 seconds
+
+```js
+function myPromise() {
+  return new Promise((resolve, reject) => {
+    const value = true
+    setTimeout(() => {
+      if (value) {
+        resolve()
+      } else {
+        reject()
+      }
+    }, 2000)
+  })
+}
+
+myPromise()
+  .then(() => {
+    console.log('resolved')
+  })
+  .catch(() => {
+    console.log('rejected')
+  })
+```
