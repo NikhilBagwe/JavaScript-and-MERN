@@ -111,3 +111,36 @@ myPromise()
     console.log('rejected')
   })
 ```
+
+# Promise chaining using 'then' method :
+
+- 'then' method always returns a Promise.
+- Thus, 'then' is used for promise chaining.
+- Since, in below example, 1st 'then' method is returning a promise, thus we are able to chain it with another 2nd 'then' method. Because we can only use 'then' method on a promise.
+- Suppose we don't return 'value' in 1st 'then' method, then 'undefined' will be returned and printed by 2nd 'then' method. In this case, Internally JS is returning 'Promise.resolve(undefined)'.
+
+```js
+function myPromise() {
+  return new Promise((resolve, reject) => {
+    resolve('foo')
+  })
+}
+
+myPromise()
+  .then((value) => {
+    console.log(value)
+    value += 'bar'
+    // Internally JS is returning a Promise not a normal string
+    // return Promise.resolve(value)
+    return value
+  })
+  .then((value) => {
+    console.log(value)
+    value += 'baaz'
+    return value
+  })
+  .then((value) => {
+    console.log(value)
+  })
+```
+
