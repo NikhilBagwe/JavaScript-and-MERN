@@ -144,3 +144,79 @@ myPromise()
   })
 ```
 
+# Callback Hell solution - Promises :
+
+- We can use promise chaining using 'then' method to write a more readable code and avoid callback hell.
+
+```html
+<body>
+    <div class="container">
+      <!-- h1.heading$*5{Hello World} -->
+      <h1 class="heading1">Hello World</h1>
+      <h1 class="heading2">Hello World</h1>
+      <h1 class="heading3">Hello World</h1>
+      <h1 class="heading4">Hello World</h1>
+      <h1 class="heading5">Hello World</h1>
+    </div>
+  </body>
+```
+
+```js
+const heading1 = document.querySelector('.heading1')
+const heading2 = document.querySelector('.heading2')
+const heading3 = document.querySelector('.heading3')
+const heading4 = document.querySelector('.heading4')
+const heading5 = document.querySelector('.heading5')
+
+// Function returning promise
+function changeText(element, text, color, time) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (element) {
+        element.textContent = text
+        element.style.color = color
+        resolve()
+      } else {
+        reject('element not found')
+      }
+    }, time)
+  })
+}
+
+// 'changeText' function will return a promise, so we can chain a 'then' method to it and keep doing so on.
+changeText(heading1, 'one', 'red', 1000)
+  .then(() => {
+    // Here we have to return the promise specifically as below or else it will return 'undefined' by default.
+    // If we don't write 'return' the promise will be immediately resolved by returning 'undefined.
+    // Thus, by writing 'return' JS will wait for 1sec for 'changeText' func to return a Promise which will be chained to next 'then'.
+    return changeText(heading2, 'two', 'blue', 1000)
+  })
+  .then(() => {
+    return changeText(heading3, 'three', 'purple', 1000)
+  })
+  .then(() => {
+    return changeText(heading4, 'four', 'yellow', 1000)
+  })
+  .then(() => {
+    changeText(heading5, 'five', 'orange', 1000)
+  })
+```
+
+### A more cleaner version of above code :
+
+- In the above code, instead of writing 'return' everytime, we can remove the curly brackets and since it's an arrow function it will automatically return the promise.
+
+```js
+changeText(heading1, 'one', 'red', 1000)
+  .then(() => changeText(heading2, 'two', 'blue', 1000))
+  .then(() => changeText(heading3, 'three', 'purple', 1000))
+  .then(() => changeText(heading4, 'four', 'yellow', 1000))
+  .then(() => changeText(heading5, 'five', 'orange', 1000))
+  // Suppose if 'heading2' is not present, then promise will be rejected in 2nd 'then'. 
+  // Thus, the remaining 'then' won't be executed and directly 'catch' will be executed.
+  .catch((error) => {
+    alert(error)
+  })
+```
+
+
