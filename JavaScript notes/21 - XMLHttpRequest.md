@@ -89,7 +89,8 @@ function sendRequest(method, url) {
 }
 
 sendRequest('GET', url)
-  // when the promise is resolved, 'sendRequest' will return 'xhr.response' which we will parse in 'then' method and then this 'then' method will return data to next 'then' as the promise is resolved.
+  // when the promise is resolved, 'sendRequest' will return 'xhr.response' which we 
+  // will parse in 'then' method and then this 'then' method will return data to next 'then' as the promise is resolved.
   .then((response) => {
     const data = JSON.parse(response)
     // console.log(data)
