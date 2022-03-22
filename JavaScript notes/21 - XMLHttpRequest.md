@@ -58,3 +58,45 @@ xhr.onload = function () {
 
 xhr.send()
 ```
+
+## XHR using Promises :
+
+- Here we will write a function which will return a promise containing response of the request been made if it is resolved.
+
+```js
+const url = 'https://jsonplaceholder.typicode.com/posts'
+
+function sendRequest(method, url) {
+  return new Promise(function (resolve, reject) {
+    const xhr = new XMLHttpRequest()
+    xhr.open(method, url)
+
+    xhr.onload = function () {
+      // Check for valid status code
+      if (xhr.status >= 200 && xhr.status < 300) {
+        resolve(xhr.response)
+      } else {
+        reject(new Error('Something went wrong'))
+      }
+    }
+
+    xhr.onerror = function () {
+      reject(new Error('Something went wrong'))
+    }
+
+    xhr.send()
+  })
+}
+
+sendRequest('GET', url)
+  // when the promise is resolved, 'sendRequest' will return 'xhr.response' which we will parse in 'then' method and then this 'then' method will return data to next 'then' as the promise is resolved.
+  .then((response) => {
+    const data = JSON.parse(response)
+    // console.log(data)
+    return data
+  })
+  .then((data) => {
+    console.log(data)
+  })
+
+```
