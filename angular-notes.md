@@ -19,3 +19,7 @@
 - To access Angular CLI we have to use 'ng' which is a short form that comes from 'Angular'.
 - To create a new app - **ng new project_name**
 - Run app :  **ng serve -o**
+
+## Angular Component :
+
+- A component is a combination of data, HTML template and logic.
