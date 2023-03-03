@@ -15,5 +15,7 @@
 
 - Official [Angular CLI](https://angular.io/cli) website.
 - To install CLI Run : **npm install -g @angular/cli**
+- Check if angular CLI is installed or not - **ng v**
 - To access Angular CLI we have to use 'ng' which is a short form that comes from 'Angular'.
 - To create a new app - **ng new project_name**
+- Run app :  **ng serve -o**
