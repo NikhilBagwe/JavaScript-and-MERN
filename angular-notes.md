@@ -244,9 +244,115 @@ export class AppComponent implements AfterViewInit {
 <app-post [fromParent] = 'parentMesssage'></app-post>
 ```
 
+## @Output decorator and Event emitter :
+
+- This is an Ideal approach when we want to share data changes that occur on things like button clicks, form enteries and other user events.
+- Create the variable that is to be passed and import Output and Event emitter.
+- then init the Output decorator with event emitter.
+
+### Child component TS :
+
+```js
+export class PostComponent implements OnInit {
+  title : string = "List of Posts"
+  
+  message:string = 'From Post component'
+
+  childMessage : string = 'From child component'
+
+  outputChildMessage : string = 'Message from child component via Output'
+
+  @Input() fromParent : string = ''
+
+  @Output() messageEvent = new EventEmitter<string>()
+
+  constructor(){}
+  ngOnInit(): void {
+    
+  }
+}
+```
+- Now add a Button to frontend of Child component and add a click event on it which will emit message.
+
+### Child component TS :
+
+```js
+export class PostComponent implements OnInit {
+  title : string = "List of Posts"
+  
+  message:string = 'From Post component'
+
+  childMessage : string = 'From child component'
+
+  outputChildMessage : string = 'Message from child component via Output'
+
+  @Input() fromParent : string = ''
+
+  @Output() messageEvent = new EventEmitter<string>()
+
+  constructor(){}
+  ngOnInit(): void {
+    
+  }
+
+  sendMessage(){
+    this.messageEvent.emit(this.outputChildMessage)
+  }
+}
+```
+
+### Child component HMTL :
+
+```html
+<h1>{{title}}</h1>
+
+<h3>{{fromParent}}</h3>
+
+<app-post-list [fromPost] = 'message'></app-post-list>
+
+<button (click) = 'sendMessage()'>Click</button>
+```
+
+- Adding a new method to be called on Click of button.
+### Parent component TS :
+
+```js
+export class AppComponent implements AfterViewInit {
+  title = 'AngIntro';
+  parentMesssage : string = "Message coming from Parent component 2"
+  message:string = '';
+
+  @ViewChild(PostComponent) childComp;
+  
+  constructor(){
+    
+  }
+
+  ngAfterViewInit(): void {
+    console.log(this.childComp);
+    this.message = this.childComp.childMessage
+  }
+
+  receiveMessage($event){
+    console.log($event);
+    
+  }
+}
+```
 
 
+### Parent component HMTL :
 
+```html
+<h1>Angular app</h1>
+
+<h3>{{message}}</h3>
+
+<app-navbar></app-navbar>
+<app-post [fromParent] = 'parentMesssage' (messageEvent) = 'receiveMessage($event)'></app-post>
+```
+
+- Now click the button and message will be displayed in Console.
 
 
 
