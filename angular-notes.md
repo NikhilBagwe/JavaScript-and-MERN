@@ -313,7 +313,8 @@ export class PostComponent implements OnInit {
 <button (click) = 'sendMessage()'>Click</button>
 ```
 
-- Adding a new method to be called on Click of button.
+- Binding child comp's method to parent comp
+
 ### Parent component TS :
 
 ```js
@@ -353,6 +354,8 @@ export class AppComponent implements AfterViewInit {
 ```
 
 - Now click the button and message will be displayed in Console.
+- So here we are getting child comp data into parent comp when button is pressed.
+- On clicking btn, the msg is getting emitted through event emitter and because of output decorator we can access it outside of child comp.
 
 
 
