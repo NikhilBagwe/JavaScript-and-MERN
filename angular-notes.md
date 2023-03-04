@@ -141,7 +141,7 @@ export class PostComponent {
 
 # Sharing Data between Components :
 
-1. Sharing data from Parent to Child : **@Input Decorator**
+## Sharing data from Parent to Child : **@Input Decorator**
 
 - Write your variable inside Parent component's class
 
@@ -180,4 +180,85 @@ export class PostComponent implements OnInit {
 
 <h3>{{fromParent}}</h3>
 ```
+
+## Sharing data from Child to Parent : **@ViewChild & @Output Decorator**
+
+## @ViewChild Decorator :
+
+- Create variable in Child Component's class :
+
+### Child Component TS :
+```js
+export class PostComponent implements OnInit {
+  title : string = "List of Posts"
+  @Input() fromParent : string = ''
+  message:string = 'From Post component'
+
+  childMessage : string = 'From child component'
+
+  constructor(){}
+  ngOnInit(): void {
+    
+  }
+}
+```
+- Access variable in Parent component 
+- We have to use AfterViewInit lifecycle hook to view child data as when we load the app component our child component is undefined
+
+### Parent component TS :
+```js
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { PostComponent } from './post/post.component';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent implements AfterViewInit {
+  title = 'AngIntro';
+  parentMesssage : string = "Message coming from Parent component 2"
+  message:string = '';
+
+  @ViewChild(PostComponent) childComp;
+  
+  constructor(){
+    
+  }
+
+  ngAfterViewInit(): void {
+    console.log(this.childComp);
+    this.message = this.childComp.childMessage
+  }
+}
+```
+
+### Parent component HTML :
+
+```html
+<h1>Angular app</h1>
+
+<h3>{{message}}</h3>
+
+<app-navbar></app-navbar>
+<app-post [fromParent] = 'parentMesssage'></app-post>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
