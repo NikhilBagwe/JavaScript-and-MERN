@@ -75,3 +75,48 @@ export class AppModule { }
 
 <app-navbar></app-navbar>
 ```
+
+- Adding CSS to navbar component by using style property :
+
+```javascript
+import { Component } from "@angular/core";
+
+@Component({
+    selector: 'app-navbar',
+    template: '<h1>Navbar Component</h1>',
+    styles: ['h1{color:red}']
+})
+
+export class NavbarComponent{
+
+}
+```
+- We can use **backticks** to write multiple lines of HTML/CSS code in '.ts' file.
+
+## Better Approach to Create a Component :
+
+- We will create separate files for HTML, CSS and Logic for a component and then link them up.
+- Now we can write our code into individual files.
+- While passing URL in logic file we have to change the name of property 'template' to 'templateUrl' and 'styles' to 'styleUrls' :
+
+```javascript
+import { Component } from "@angular/core";
+
+@Component({
+    selector: 'app-navbar',
+    templateUrl: './navbar.component.html',
+    styleUrls: ['./navbar.component.css']
+})
+
+export class NavbarComponent{
+
+}
+```
+
+## Creating component through CLI :
+
+- Run cmd : **ng g c component_name** OR **ng generate component component_name**
+- The required files will be auto generated and the component will be automatically linked to Main component's declarations in 'app.module.ts'
+
+
+
