@@ -118,5 +118,66 @@ export class NavbarComponent{
 - Run cmd : **ng g c component_name** OR **ng generate component component_name**
 - The required files will be auto generated and the component will be automatically linked to Main component's declarations in 'app.module.ts'
 
+## OnInit Interface and Life Cycle hook :
 
+# Data Binding :
+
+- Render data written in logic file to frontend i.e HTML view.
+- For that we have to create an JS scope in post.component.html file.
+- Angular provides us with **String Interpolation syntax** : {{}}
+- We can write any valid JS code inside it and pull data from .ts file to .html
+- 
+### post.component.ts
+```js
+export class PostComponent {
+  title : string = "List of Posts"
+}
+```
+
+### post.component.html
+```html
+<h1>{{title}}</h1>
+```
+
+# Sharing Data between Components :
+
+1. Sharing data from Parent to Child : **@Input Decorator**
+
+- Write your variable inside Parent component's class
+
+### Parent Component TS
+```js
+export class AppComponent {
+  title = 'AngIntro';
+  parentMesssage : string = "Message coming from Parent component"
+}
+```
+- Pass that variable inside Child component tag in below syntax
+### Parent Component HTML
+```html
+<h1>Angular app</h1>
+
+<app-navbar></app-navbar>
+<app-post [fromParent] = 'parentMesssage'></app-post>
+```
+
+### Then in Child component's TS use @Input decorator :
+```js
+export class PostComponent implements OnInit {
+  title : string = "List of Posts"
+  @Input() fromParent : string = ''
+
+  constructor(){}
+  ngOnInit(): void {
+    
+  }
+}
+```
+### Child component's HTML :
+
+```html
+<h1>{{title}}</h1>
+
+<h3>{{fromParent}}</h3>
+```
 
