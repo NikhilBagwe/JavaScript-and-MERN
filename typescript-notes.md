@@ -26,7 +26,7 @@ console.log(null + 2); // 2
 
 # Install TS on system :
 
-```bash
+```js
 npm install -g typescript
 
 tsc -v  // Check TS installed or not
