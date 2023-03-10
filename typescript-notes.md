@@ -48,3 +48,57 @@ tsc intro.ts  // To compile a TS file to generate it's corresponding JS file
 - Any
 - Never
 - Unknown
+
+# Number :
+
+- JavaScript does not have a special runtime value for integers, so there’s no equivalent to int or float - everything is simply number.
+
+```js
+let userId : number = 3368
+```
+- Now when you try accessing the methods for 'userId' variable, the methods only related to 'number' type will be displayed.
+
+# Type Inference :
+
+- Now it is pretty obvious when we declare a variable type number and assign a number - 3368 to it.
+- So we can avoid it.
+- TS is smart enough to automatically detect that you have placed a number into it so it's type is number.
+- NOTE : There places where we have to specifty TYPE using colon.
+
+```js
+let userId = 3368
+
+userId = "nikhil"  // Error : Type 'string' is not assignable to type 'number'
+```
+
+# Any :
+
+- When you declare a variable and at that point you don't know which type of value is going to be assigned to it, TS automatically assigns 'any' to it.
+- It is a really bad case and must be avoided.
+
+```js
+let hero;
+
+function getHero(){
+    return "thor"
+}
+
+hero = getHero()
+
+console.log(hero)
+```
+- From above code we can see any type of value can be returned from the function getHero(). 
+- It may be boolean, string, etc. 
+- Thus, if any other developer changes the return type it may break the code during the API call or something similar.
+- "any" is basically a marker/placeholder in TS which tells TS to basically turn off the Type checking for that variable to which "any" is assigned.
+- It kills the whole purpose of TS as Type checking is disabled.
+
+
+
+
+
+
+
+
+
+
