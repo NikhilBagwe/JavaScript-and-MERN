@@ -33,3 +33,18 @@ tsc -v  // Check TS installed or not
 
 tsc intro.ts  // To compile a TS file to generate it's corresponding JS file
 ```
+
+# TS Types :
+
+- Number
+- Boolean
+- String
+- Undefined 
+- Null 
+- Void
+- Object
+- Array
+- Tuples
+- Any
+- Never
+- Unknown
