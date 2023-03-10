@@ -93,8 +93,37 @@ console.log(hero)
 - "any" is basically a marker/placeholder in TS which tells TS to basically turn off the Type checking for that variable to which "any" is assigned.
 - It kills the whole purpose of TS as Type checking is disabled.
 
+# Functions :
 
+```js
+function addTwo(num : number){
+    return num + 2
+}
 
+let loginUser = (name : string, id : number) => {
+    return id + 2
+}
+
+console.log(addTwo(5))
+```
+
+- If I don't specify the type of passed parameter "num", TS will consider "any" for it which can lead to problems.
+
+## Better way to write functions in TS :
+
+- But still the function can return any value.
+- Thus we specify the return type of func as below :
+
+```js
+function addTwo(num : number) : number{
+    return num + 2
+}
+
+const hello = (s : string) : string => {
+    return " "
+}
+```
+- It is a goood practice in TS to explicitly mention return type of func.
 
 
 
