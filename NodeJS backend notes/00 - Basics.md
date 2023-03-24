@@ -45,7 +45,62 @@ const server = http.createServer((req, res) => {
 - request = is what user does to our server i.e sends a request
 - response = is what server gives in response to the request made.
 
+### We can access what url is user hitting using "req"
+```js
+const server = http.createServer((req, res) => {
+    console.log(req.url);
+})
+```
+
+### To stop the endless reloading of server use "res" :
+
+```js
+const server = http.createServer((req, res) => {
+    res.end("<h1>Page loaded</h1>")
+})
+```
+
+## Basic Navigation / Routing :
+
+```js
+const server = http.createServer((req, res) => {
+    if(req.url === '/'){
+        res.end("<h1>Home Page</h1>")
+    }
+    else if(req.url === '/about'){
+        res.end("<h1>About Page</h1>")
+    }
+    else if(req.url === '/contact'){
+        res.end("<h1>Contact Page</h1>")
+    }
+    else{
+        res.end("<h1>Page not found</h1>")
+    }
+})
+
+server.listen(8080, () => {
+    console.log('Server is working');
+})
+```
 
 
+# Modules :
 
+- Everything in NodeJS is an module. It can be a function, a variable declared with server module, etc.
+- There are 3 types of module : Inbuilt in nodejs , Third party installed through npm, user made 
+
+## Creating a user made module :
+
+- Create a new file and write below code:
+```js
+const name = 'Nikhil Bagwe'
+
+module.exports = name
+```
+
+- Then import the newly created module in index.js and then you can use it there
+```js
+const name = require('./mymodule')
+console.log(name);
+```
 
