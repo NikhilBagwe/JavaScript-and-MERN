@@ -47,8 +47,29 @@ app.listen(8080, () => {
 })
 ```
 
+- Suppose if we try accessing an undefined variable in "index.ejs" it will throw error.
+- So to handle it we use "locals" object.
+
+```html
+<body>
+    <h1>Express Basics</h1>
+    <h3>Hello <%= locals.namee %></h3>
+</body>
+```
+- Above code will render and the code won't break.
 
 
+# Serving Static files :
+
+- Create a folder "public" which will store static files to be served.
+- We have to pass the absolute path to static()
+- We have to use it inside a middleware
+
+```js
+app.use(express.static(path.join(path.resolve(), 'public')))
+```
+- Now we can directly access files stored in public folder from url
+- eg: http://localhost:8080/index.html
 
 
 
