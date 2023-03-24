@@ -104,3 +104,73 @@ const name = require('./mymodule')
 console.log(name);
 ```
 
+# Use "import" keyword :
+
+- Instead of using "require" we can use "import" to use a module in our file as we do in REACT.
+- In package.json add below line:
+```js
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",  // Add this line
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
+
+```
+- Now we can import modules as shown below:
+```js
+//const http = require('http')
+//const name = require('./mymodule')
+import http from 'http'
+import name from './mymodule.js'
+```
+
+- Also we have to make changes while exporting user made modules:
+```js
+const name = 'Nikhil Bagwe'
+
+export default name
+```
+
+- If we want to export multiple modules then
+```js
+const name = 'Nikhil Bagwe'
+const name2 = 'Sung jin woo'
+const name3 = 'Naruto'
+
+export default name
+export {name2, name3}
+```
+
+- While importing in index.js :
+```js
+import {name2, name3} from './mymodule.js'
+```
+- In case of exporting single module i.e "export default name", we can change it's name while importing. Eg: export default firstName. It will still work.
+- We can also export in line as follows:
+```js
+export const name3 = 'Naruto'
+```
+- While importing we can import all modules as an object in a single line.
+```js
+import * as myObj from './mymodule.js'
+console.log(myObj);
+
+// op
+[Module: null prototype] {
+  default: 'Nikhil Bagwe',
+  name2: 'Sung jin woo',
+  name3: 'Naruto'
+}
+```
+
