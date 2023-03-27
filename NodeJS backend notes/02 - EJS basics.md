@@ -66,12 +66,49 @@ app.listen(8080, () => {
 - We have to use it inside a middleware
 
 ```js
+// setting the static folder path
+
 app.use(express.static(path.join(path.resolve(), 'public')))
 ```
 - Now we can directly access files stored in public folder from url
 - eg: http://localhost:8080/index.html
+- Basically we can access all files stored in "public" folder in files stored in "views" folder.
 
 
+```js
+import express from 'express'
+import path from 'path'
+
+const app = express()
+
+const users = []
+
+// setting the static folder path
+app.use(express.static(path.join(path.resolve(), 'public')))
+// using middleware to access req.body content
+app.use(express.urlencoded({extended:true}))
+
+// setting up view engine
+app.set('view engine', 'ejs')
+
+// displaying data in 'index.ejs'
+app.get('/', (req, res) => {
+    res.render('index', {name: "Nikhil"})
+})
+
+// when submit btn is pressed this is called
+app.post('/', (req, res) => {
+    // console.log(req.body);
+    users.push({username: req.body.name, email: req.body.email})
+    res.render("success")
+})
+
+app.listen(8080, () => {
+    console.log("Server is working");
+})
+
+
+```
 
 
 
