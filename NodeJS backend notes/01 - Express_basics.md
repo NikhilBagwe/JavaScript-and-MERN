@@ -94,3 +94,7 @@ app.listen(8080, () => {
 ```js
 npx express-generator folder-name
 ```
+
+- Then run `npm install`
+- The `public` folder contains all static files
+- The `views` folder contains all template engine files which will have our UI
