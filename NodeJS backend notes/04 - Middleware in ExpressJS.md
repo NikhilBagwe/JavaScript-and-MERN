@@ -120,4 +120,15 @@ app.use(express.urlencoded({ extended: true }))
 
 // To serve static folders
 app.use(express.static(path.join(__dirname, 'public')))
+
+// throws error when user tries accessing any route which is not defined
+app.all("*", (req, res) => {
+  res.status(404)
+  throw new Error("ROute not found")
+})
+
 ```
+
+# Third party middleware :
+
+- Morgan used for logging.
