@@ -23,3 +23,6 @@
 - Much faster.
 - Modular - Functions such as cryptography are separated into different packages called NuGet packages which can be installed when needed. But in case of .NET framework it was part of the package already.
 - Follows best practices - For MVC app you get Dependency injection preinstalled by default
+- Modern as it was built from ground up to run apps in today's world
+- Compliant with industry standards.
+- Easy to upgrade
