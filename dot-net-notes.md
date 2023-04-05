@@ -17,6 +17,8 @@
 - Here Microsoft decided to create a new .NET core CLR which was faster and can execute the same IL on multiple platforms generated in above process.
 - MS got a chance to remove all the patches from framework, and rewrite & figure out the right code to solve today's modern world problems.
 
+---
+
 ## Advantages of .NET Core over .NET framework :
 
 - Works on most platforms.
@@ -29,6 +31,8 @@
 
 ### Basically .NET framework was the old Runtime and .NET core is the new runtime
 
+---
+
 ## .NET standard :
 
 - A common interface of APIs for .NET implementation
@@ -37,6 +41,8 @@
 - Now using the same ".NET standard class library" you can also create ".NET framework user Interface"
 - We can easily transition from framework to core
 - .NET standard exists to sit in middle of two user interfaces.
+
+---
 
 ## .NET Timelines :
 
@@ -67,8 +73,37 @@
 
 ### We will get new .NET version every November.
 
+---
 
+## When to use each :
 
+### .NET framework :
+
+- Addition to existing projects.
+- When forced to use old OS
+- You can still use .NET framework to build projects today even though the version is not supported, but if you find a bug, you have to solve it on your own.
+
+### .NET Core :
+
+- New Projects
+- When upgrading projects from older version as latest .NET 7 runs same C# code much faster.
+
+---
+
+## What about ASP.NET and ASP.NET Core ?
+
+- These are frameworks for web applications.
+- It's a way to work on the web with C#.
+
+### ASP.NET :
+
+- It is a framework built on top of .NET framework.
+- It supports Webforms (Not similar to WinForms which only run on Windows desktop), MVC and WebAPI
+
+### ASP.NET Core :
+
+- It is a framework built on top of all .NET versions after .NET 5.0 i.e core and used to make web apps.
+- It supports Razor pages, MVC, API, Blazor Server (Alternative to Webforms), Blazor Webassembly
 
 
 
