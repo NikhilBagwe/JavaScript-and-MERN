@@ -26,3 +26,41 @@
 - Modern as it was built from ground up to run apps in today's world
 - Compliant with industry standards.
 - Easy to upgrade
+
+### Basically .NET framework was the old Runtime and .NET core is the new runtime
+
+## .NET standard :
+
+- A common interface of APIs for .NET implementation
+- It helps you to convert a ".NET framework class library" to ".NET standard class library" which can be used to transition to ".NET core user Interface"
+- Workflow : ".NET framework user Interface" => ".NET framework class library" => ".NET standard class library" => ".NET core class library" => ".NET core user Interface"
+- Now using the same ".NET standard class library" you can also create ".NET framework user Interface"
+- We can easily transition from framework to core
+- .NET standard exists to sit in middle of two user interfaces.
+
+## .NET Timelines :
+
+### .NET Frameowrk :
+
+- 1.0 : January 2002 
+- 2.0 : October 2005
+- 3.0 : November 2006
+- 3.5 : November 2007
+- 4.0 : April 2010 - Major update
+- 4.5 : August 2012 - Last version of .NET framework
+
+### .NET Core :
+
+- 1.0 : June 2016 - Had limited functionality. Was present as a proof of concept.
+- 2.1 LTS : May 2018 - MVC, Razor pages, API support, Cross-platform i.e .NET apps can be hosted on Linux servers
+
+### .NET Frameowrk :
+
+- 4.8 : April 2019 - Last minor vesion. Still supported and receiving security updates
+
+
+
+
+
+
+
