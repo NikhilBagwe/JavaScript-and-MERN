@@ -52,11 +52,25 @@
 ### .NET Core :
 
 - 1.0 : June 2016 - Had limited functionality. Was present as a proof of concept.
-- 2.1 LTS : May 2018 - MVC, Razor pages, API support, Cross-platform i.e .NET apps can be hosted on Linux servers
+- 2.0 and 2.1 LTS : May 2018 - Production ready. MVC, Razor pages, API support. Cross-platform i.e .NET apps can be hosted on Linux servers
 
 ### .NET Frameowrk :
 
-- 4.8 : April 2019 - Last minor vesion. Still supported and receiving security updates
+- 4.8 : April 2019 - Last minor vesion of .NET framework and will never go beyond that. Still supported and receiving security updates
+
+### .NET Core :
+
+- 3.0 and 3.1 LTS : December 2019 - Desktop application WinForms was introduced
+- MS skipped .NET Core 4.0 to avoid naming confusion as .NET framework 4.0 already exists.
+- 5.0 : November 2020 - From here they dropped the name of 'core' as .NET framework 5.0 didn't exist, so no naming confusion. So from we call it just '.NET 5.0'
+- 6.0 : November 2021
+
+### We will get new .NET version every November.
+
+
+
+
+
 
 
 
