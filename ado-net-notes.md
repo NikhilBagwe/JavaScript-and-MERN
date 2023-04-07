@@ -40,7 +40,28 @@
 2. ExecuteScalar
 3. ExecuteNonQuery
 
+## DataReader :
 
+- Used to retrieve data from DB in Read-only and Forward-only mode.
+- Can't update/delete data in DB.
+- If you want to make changes in retrieved data, then use DataAdapter instead.
+- By default, DataReader stores 1 row at a time in memory, reducing System overhead.
+- Use case: The data can be retrieved and stored in the network buffer in the client at once. Later client can read data using Read method. As data gets stored in one request, performance is increased significantly.
+
+## DataSet :
+
+- Stores a local copy of DB table on client machine. It can be a single or multiple tables.
+- It is independent of Data source since it exists on local system. Even if connection is lost, still app will be functional.
+- Makes application fast and reliable
+- Good for accessing Remote DB, as once you get copy of DB on local machine, you can update it anytime.
+- DataSet includes tables, constraints and relationships among tables.
+- DataAdapters are used to fill DataSets.
+
+## DataAdapter :
+
+- Acts as a bridge between DataSets and Data source.
+- They make connection with data source and then fill retrieved data into DataSets.
+- Also updates data source with dataSets.
 
 
 
